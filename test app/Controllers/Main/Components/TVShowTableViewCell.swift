@@ -22,11 +22,9 @@ class TVShowTableViewCell: UITableViewCell {
     }
     
     public func setupUI(tvShow: TVShow){
-        
-        lblTitle.text = tvShow.show.name
-        ivImage.loadFrom(urlString: tvShow.show.image.medium)
-        
-        
+
+        lblTitle.text = tvShow.name
+        ivImage.loadFrom(urlString: tvShow.imgMediumUrl)
     }
     
 }

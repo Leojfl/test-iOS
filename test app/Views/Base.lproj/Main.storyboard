@@ -16,10 +16,35 @@
                     <view key="view" contentMode="scaleToFill" id="mFl-7N-HWc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7TI-NQ-vol">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ME1-Fr-tu9"/>
+                                    <constraint firstAttribute="height" constant="40" id="c8q-zY-5ek"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lpa-NV-m0H">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KrT-GU-NpI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lpa-NV-m0H" firstAttribute="top" secondItem="KrT-GU-NpI" secondAttribute="top" id="AAu-Q9-aAd"/>
+                            <constraint firstItem="KrT-GU-NpI" firstAttribute="trailing" secondItem="lpa-NV-m0H" secondAttribute="trailing" id="Kd1-Ap-sIi"/>
+                            <constraint firstItem="KrT-GU-NpI" firstAttribute="bottom" secondItem="lpa-NV-m0H" secondAttribute="bottom" id="MbR-Ob-Ogt"/>
+                            <constraint firstItem="7TI-NQ-vol" firstAttribute="centerY" secondItem="mFl-7N-HWc" secondAttribute="centerY" id="cUY-Bu-RCG"/>
+                            <constraint firstItem="7TI-NQ-vol" firstAttribute="centerX" secondItem="mFl-7N-HWc" secondAttribute="centerX" id="foj-A5-yEu"/>
+                            <constraint firstItem="lpa-NV-m0H" firstAttribute="leading" secondItem="KrT-GU-NpI" secondAttribute="leading" id="qrI-LM-soL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="5Ql-5c-Rk3"/>
+                    <connections>
+                        <outlet property="spinner" destination="7TI-NQ-vol" id="oTJ-aA-MX1"/>
+                        <outlet property="tableFavorites" destination="lpa-NV-m0H" id="7aS-51-obJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdy-5a-wNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,19 +61,30 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SUa-uK-M0A">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="F32-x8-YW4">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uYb-hT-lJU"/>
+                                    <constraint firstAttribute="width" constant="40" id="vr9-Nq-q7e"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JbU-Lr-fl2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JbU-Lr-fl2" firstAttribute="bottom" secondItem="SUa-uK-M0A" secondAttribute="bottom" id="4Kq-pU-ft6"/>
+                            <constraint firstItem="F32-x8-YW4" firstAttribute="centerX" secondItem="5tk-6r-yVR" secondAttribute="centerX" id="Yvq-2B-YIx"/>
                             <constraint firstItem="JbU-Lr-fl2" firstAttribute="trailing" secondItem="SUa-uK-M0A" secondAttribute="trailing" id="Z1W-dN-7C2"/>
+                            <constraint firstItem="F32-x8-YW4" firstAttribute="centerY" secondItem="5tk-6r-yVR" secondAttribute="centerY" id="kCl-OV-ufr"/>
                             <constraint firstItem="SUa-uK-M0A" firstAttribute="leading" secondItem="JbU-Lr-fl2" secondAttribute="leading" id="nf3-qX-FJl"/>
                             <constraint firstItem="SUa-uK-M0A" firstAttribute="top" secondItem="JbU-Lr-fl2" secondAttribute="top" id="s7m-lh-cV4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="TV Shows" id="6dv-OJ-cRT"/>
                     <connections>
+                        <outlet property="spinner" destination="F32-x8-YW4" id="3bP-wy-Jai"/>
                         <outlet property="tableTVshows" destination="SUa-uK-M0A" id="gwL-dN-gn9"/>
                     </connections>
                 </viewController>
