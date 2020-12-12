@@ -25,7 +25,7 @@
 		4ECC348B2584982C006095FA /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC348A2584982C006095FA /* Show.swift */; };
 		4ECC3490258498C2006095FA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC348F258498C2006095FA /* Image.swift */; };
 		4ECC349525849E04006095FA /* Extencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC349425849E04006095FA /* Extencion.swift */; };
-		4ECC349A25849E15006095FA /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC349925849E15006095FA /* UIUtils.swift */; };
+		4ECC34A225849F57006095FA /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC34A125849F57006095FA /* UIUtils.swift */; };
 		F8E77956322F5CD55BBC494A /* Pods_test_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C3552345C1C9596B543D9 /* Pods_test_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,7 @@
 		4ECC348A2584982C006095FA /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		4ECC348F258498C2006095FA /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4ECC349425849E04006095FA /* Extencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extencion.swift; path = Utils/Extencion.swift; sourceTree = "<group>"; };
-		4ECC349925849E15006095FA /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		4ECC34A125849F57006095FA /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUtils.swift; path = Utils/UIUtils.swift; sourceTree = "<group>"; };
 		5A1C3552345C1C9596B543D9 /* Pods_test_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D92CC71F5D4013E1ED85FF /* Pods-test app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test app.debug.xcconfig"; path = "Target Support Files/Pods-test app/Pods-test app.debug.xcconfig"; sourceTree = "<group>"; };
 		B09A66918870A60EA30BEAE8 /* Pods-test app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test app.release.xcconfig"; path = "Target Support Files/Pods-test app/Pods-test app.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 		4ECC33DB2584129E006095FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4ECC34A125849F57006095FA /* UIUtils.swift */,
 				4ECC349425849E04006095FA /* Extencion.swift */,
-				4ECC349925849E15006095FA /* UIUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -429,7 +429,6 @@
 				4ECC33A7258411BC006095FA /* SceneDelegate.swift in Sources */,
 				4ECC348525848C35006095FA /* TVShowTableViewCell.swift in Sources */,
 				4ECC3441258475AB006095FA /* TVShow.swift in Sources */,
-				4ECC349A25849E15006095FA /* UIUtils.swift in Sources */,
 				4ECC3490258498C2006095FA /* Image.swift in Sources */,
 				4ECC348B2584982C006095FA /* Show.swift in Sources */,
 				4ECC349525849E04006095FA /* Extencion.swift in Sources */,
@@ -437,6 +436,7 @@
 				4ECC343225847204006095FA /* TVShowsViewController.swift in Sources */,
 				4ECC34462584769F006095FA /* Api.swift in Sources */,
 				4ECC343C25847404006095FA /* Constants.swift in Sources */,
+				4ECC34A225849F57006095FA /* UIUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
