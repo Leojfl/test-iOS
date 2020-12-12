@@ -48,8 +48,6 @@ extension UITableView {
 extension UIImageView {
     func loadFrom(urlString: String) {
         let url: URL? = URL(string: urlString)
-        print(url)
-        print(urlString)
         if url == nil {
             self.image = UIImage()
             return
