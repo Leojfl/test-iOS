@@ -11,8 +11,8 @@ PODS:
     - Realm (= 10.4.0)
 
 DEPENDENCIES:
-  - AlamofireObjectMapper
-  - RealmSwift
+  - AlamofireObjectMapper (= 6.2.0)
+  - RealmSwift (= 10.4.0)
 
 SPEC REPOS:
   trunk:
@@ -29,6 +29,6 @@ SPEC CHECKSUMS:
   Realm: d8466b2238f034a5ff7a031aed63b7dacdf0dd10
   RealmSwift: 37a93ae742667948cc094a3c6ae3d006db32b66f
 
-PODFILE CHECKSUM: 1c97e6b52ca9a5354c3a07f9a564dccdbb813a3d
+PODFILE CHECKSUM: c165d7158fb309d8731e42c166d3d92f1b83f4f7
 
 COCOAPODS: 1.10.0
