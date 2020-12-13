@@ -96,7 +96,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
     
     private func handleDeleteTvShow(tvShowId: Int64, completion: @escaping (()-> Void)){
         UIUtils.showAlert(controller: self,
-                          title: "¿Estas seguro?",
+                          title: "¿Estás seguro?",
                           message: "Este show de TV se borrara de mis favoritos") { (uialert) in
             TVShow.deleteFavorite(tvShowId: tvShowId) { (isDelete) in
                 if  isDelete {
