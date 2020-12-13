@@ -1,0 +1,16 @@
+Arquitectura: 
+	La arquitectura usada en esta aplicación esta basada en arquitectura MVP. 
+
+Librerias:
+	 Alamofire en su versión 5.0
+		 Esta librería es la encargada de hacer las peticiones al servidor 
+	AlamofireObjectMapper en su versión 6.2.0 
+		Esta librería va de la mano de la librería alamofire y es usada para mapear la información del servidor a modelos de la aplicación 
+	RealmSwift en su versión 10.4.0
+		 Esta libreria es la encargada de la persistencia de datos de manera local y la compatibilidad con AlamofireObjectMapper hace que sea fácil guardar los datos ya mapeados 
+
+Código a mejora: 
+	el código a mejorar son las pruebas unitarias y el como se hacen las acciones de guardar o eliminar favoritos 
+
+Problemas: 
+	 los problemas encontrados fue el hecho de trabar con la version 10 de iOS dado a que solo había trabajo con iOS 13, se resolví buscando información de como hacer algunas cosas para iOS 10 otro problema fue que en la api de http://api.tvmaze.com/ al momento de traer todos los show venían en un objeto con score y show y cuando solo quería traer un show venia el show solo, la solución fue tener dos modelos para poder mapearlos
