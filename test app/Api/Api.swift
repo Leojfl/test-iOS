@@ -15,6 +15,11 @@ class Api {
         Api.requestGet(url: url, completion: completion)
     }
     
+    public static func getShow(showId: Int64, completion: @escaping (_ data: Show?) -> Void){
+        let url = "\(Constants.getUrl())/shows/\(showId)"
+        Api.requestGet(url: url, completion: completion)
+    }
+    
     // MARK: Request functions
     private static func requestGet<T>(url: String, completion: @escaping (_ data: [T]?) -> Void) where T: Mappable {
 
@@ -49,5 +54,6 @@ class Api {
             }
         }
     }
+    
   
 }

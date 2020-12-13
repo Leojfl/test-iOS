@@ -47,20 +47,29 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         
         
         if let tvShowsViewController = (vc as? TVShowsViewController) {
-            tvShowsViewController.handleSelectTvShow = { tvShowId in
-                self.showTvShowDetails(tvShowId: tvShowId)
+            tvShowsViewController.handleSelectTvShow = { showId in
+                self.showTvShowDetails(showId: showId)
+            }
+            
+            tvShowsViewController.handleDeleteTvShow = { tvShowId, completion in
+                self.handleDeleteTvShow(tvShowId: tvShowId, completion: completion)
+            }
+            
+            tvShowsViewController.handleFavoriteTvShow = { tvShow, completion in
+                self.handleFavoriteTvShow(tvShow: tvShow, completion: completion)
             }
         }
         
         
         if let favoritesViewController = (vc as? FavoritesViewController) {
-            favoritesViewController.handleSelectTvShow = { tvShowId in
-                self.showTvShowDetails(tvShowId: tvShowId)
+            favoritesViewController.handleSelectTvShow = { showId in
+                self.showTvShowDetails(showId: showId)
+            }
+            
+            favoritesViewController.handleDeleteTvShow = { tvShowId, completion in
+                self.handleDeleteTvShow(tvShowId: tvShowId, completion: completion)
             }
         }
-        
-        
-        
         
         let uiNavegation = UINavigationController(rootViewController: vc)
         UIUtils.setupNavigationBar(uiNavegation.navigationBar)
@@ -69,12 +78,55 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         return uiNavegation
     }
     
-    private func showTvShowDetails(tvShowId: Int64){
+    private func showTvShowDetails(showId: Int64){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TvShowDetailsViewController") as! TvShowDetailsViewController
-        vc.tvShowId = tvShowId
+        vc.showId = showId
+        
+        vc.handleDeleteTvShow = { tvShowId, completion in
+            self.handleDeleteTvShow(tvShowId: tvShowId, completion: completion)
+        }
+        
+        vc.handleFavoriteTvShow = { tvShow, completion in
+            self.handleFavoriteTvShow(tvShow: tvShow, completion: completion)
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    private func handleDeleteTvShow(tvShowId: Int64, completion: @escaping (()-> Void)){
+        UIUtils.showAlert(controller: self,
+                          title: "¿Estas seguro?",
+                          message: "Este show de TV se borrara de mis favoritos") { (uialert) in
+            TVShow.deleteFavorite(tvShowId: tvShowId) { (isDelete) in
+                if  isDelete {
+                    completion()
+                } else {
+                    UIUtils.showAlert(controller: self,
+                                      title: "Oops, algo salió mal!",
+                                      message: "Hubo un problema al eliminar este show de TV de tus favoritos")
+                    
+                }
+            }
+        }
+    }
+    
+    private func handleFavoriteTvShow(tvShow: TVShow, completion: @escaping (()-> Void)){
+        
+        TVShow.saveFavorite(tvShow: tvShow) { (isSave) in
+            if isSave {
+                completion()
+            } else {
+                UIUtils.showAlert(controller: self,
+                                  title: "Oops, algo salió mal!",
+                                  message: "Hubo un problema al guardar este show de TV")
+                
+            }
+            
+        }
+    }
+    
+    
     
     
 

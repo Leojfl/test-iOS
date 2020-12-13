@@ -10,12 +10,13 @@ import UIKit
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableFavorites: UITableView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    private var favorites:[TVShow] = []
     @IBOutlet weak var lblTitle: UILabel!
     
-    public var handleSelectTvShow: ((_ tvShowId:Int64)-> Void)?
+    public var handleSelectTvShow   : ((_ tvShowId:Int64)-> Void)!
+    public var handleDeleteTvShow   : ((_ tvShowId: Int64, _ completion: @escaping (()-> Void )) -> Void)!
+    
+    private var favorites:[TVShow] = []
     
    
     override func viewDidLoad() {
@@ -48,13 +49,6 @@ class FavoritesViewController: UIViewController {
             self.tableFavorites.reloadData("Sin favoritos")
         }
     }
-    
-    public func showSpinner(){
-        self.spinner.isHidden = false
-        self.spinner.startAnimating()
-        
-    }
-
 }
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
@@ -76,25 +70,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        UIUtils.showAlert(controller: self,
-                          title: "¿Estas seguro?",
-                          message: "Este show de TV se borrara de mis favoritos") { (uialert) in
-            
-            self.showSpinner()
-            
-            TVShow.deleteFavorite(tvShow: self.favorites[indexPath.row]) { (isDelete) in
-                
-                self.spinner.stopAnimating()
-                if  isDelete {
-                    self.favorites.remove(at: indexPath.row)
-                    self.tableFavorites.deleteRows(at: [indexPath], with: .automatic)
-                } else {
-                    UIUtils.showAlert(controller: self,
-                                      title: "Oops, algo salió mal!",
-                                      message: "Hubo un problema al eliminar este show de TV de tus favoritos")
-                    
-                }
-            }
+        handleDeleteTvShow(self.favorites[indexPath.row].id){
+            self.favorites.remove(at: indexPath.row)
+            self.tableFavorites.deleteRows(at: [indexPath], with: .automatic)
         }
 
     }

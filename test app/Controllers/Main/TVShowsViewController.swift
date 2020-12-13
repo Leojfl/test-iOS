@@ -13,10 +13,11 @@ class TVShowsViewController: UIViewController {
     @IBOutlet weak var tableTVshows: UITableView!
     @IBOutlet weak var lblTitle: UILabel!
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     private var tvShows:[TVShow] = []
     
-    public var handleSelectTvShow: ((_ tvShowId:Int64)-> Void)?
+    public var handleSelectTvShow   : ((_ tvShowId:Int64)-> Void)!
+    public var handleDeleteTvShow   : ((_ tvShowId: Int64, _ completion: @escaping (()-> Void )) -> Void)!
+    public var handleFavoriteTvShow : ((_ tvShow: TVShow, _ completion:  @escaping (()-> Void )) -> Void)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,6 @@ class TVShowsViewController: UIViewController {
     
     private func getTVShows(){
         TVShow.getTVShows{ tvShows in
-            self.spinner.stopAnimating()
             if tvShows == nil {
                 UIUtils.showAlert(controller: self,
                                   title:"Oops, algo salió mal!",
@@ -57,12 +57,6 @@ class TVShowsViewController: UIViewController {
             self.tvShows = tvShows!
             self.tableTVshows.reloadData("No se encontraron shows para ver")
         }
-    }
-    
-    public func showSpinner(){
-        self.spinner.isHidden = false
-        self.spinner.startAnimating()
-        
     }
 
 }
@@ -89,44 +83,15 @@ extension TVShowsViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch editingStyle {
         case .delete:
-            UIUtils.showAlert(controller: self,
-                              title: "¿Estas seguro?",
-                              message: "Este show de TV se borrara de mis favoritos") { (uialert) in
-                
-                self.showSpinner()
-                TVShow.deleteFavorite(tvShow: self.tvShows[indexPath.row]) { (isDelete) in
-                    self.spinner.stopAnimating()
-                    if  isDelete {
-                        tableView.reloadRows(at: [indexPath], with: .right)
-                    } else {
-                        UIUtils.showAlert(controller: self,
-                                          title: "Oops, algo salió mal!",
-                                          message: "Hubo un problema al eliminar este show de TV de tus favoritos")
-                        
-                    }
-                }
+            
+            handleDeleteTvShow(tvShows[indexPath.row].id){
+                tableView.reloadRows(at: [indexPath], with: .right)
             }
             
             break
         case .insert:
-            
-            if editingStyle == .insert{
-                self.showSpinner()
-                
-                TVShow.saveFavorite(tvShow: tvShows[indexPath.row]) { (isSave) in
-                    
-                    self.spinner.stopAnimating()
-                
-                    if isSave {
-                        tableView.reloadRows(at: [indexPath], with: .right)
-                    } else {
-                        UIUtils.showAlert(controller: self,
-                                          title: "Oops, algo salió mal!",
-                                          message: "Hubo un problema al guardar este show de TV")
-                        
-                    }
-                    
-                }
+            handleFavoriteTvShow(tvShows[indexPath.row]){
+                tableView.reloadRows(at: [indexPath], with: .right)
             }
             break
         default:
@@ -141,7 +106,7 @@ extension TVShowsViewController: UITableViewDelegate, UITableViewDataSource{
         var type = UITableViewCell.EditingStyle.insert
         var backgroundColor = UIColor.green
         
-        if TVShow.isFavorite(tvShow: self.tvShows[indexPath.row]) {
+        if TVShow.isFavorite(tvShowId: self.tvShows[indexPath.row].id) {
             text = "Delete"
             type = UITableViewCell.EditingStyle.delete
             backgroundColor = UIColor.red

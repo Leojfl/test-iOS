@@ -24,10 +24,7 @@ class Constants {
     }
     
     public static func getUrlImdb() -> String {
-        if production {
-            return urlDev
-        }
-        return urlProd
+        return urlImdb
     }
     
     
