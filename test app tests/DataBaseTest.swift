@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import test_app
 
 class DataBaseTest: XCTestCase {
 
@@ -16,11 +17,26 @@ class DataBaseTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSaveTVShow() throws {
+    func testActionsTVShow() throws {
+        
+        let tvShow = TVShow()
+        tvShow.id = 130
+        tvShow.name = "Tests"
+        tvShow.imgMediumUrl = "test_bad_url"
+        saveAndDelete(tvShow: tvShow)
+    
     }
     
-    
-    func testDeleteTVShow() throws {
+    func saveAndDelete(tvShow: TVShow){
+        TVShow.saveFavorite(tvShow: tvShow) { result in
+            XCTAssertTrue(result)
+            XCTAssertTrue(TVShow.isFavorite(tvShowId: tvShow.id))
+        }
+        
+        TVShow.deleteFavorite(tvShowId: tvShow.id) { (result) in
+            XCTAssertTrue(result)
+            XCTAssertFalse(TVShow.isFavorite(tvShowId: tvShow.id))
+        }
     }
 
 }

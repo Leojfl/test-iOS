@@ -53,7 +53,7 @@ class TVShow:Object, Mappable {
         let realm = try! Realm()
         var favoriteShow = realm.objects(TVShow.self).filter("id == \(tvShow.id)").first
         if favoriteShow != nil {
-            completion(true)
+             completion(true)
             return
         }
         
@@ -62,9 +62,9 @@ class TVShow:Object, Mappable {
                 let JSONString = tvShow.toJSONString(prettyPrint: true)!
                 favoriteShow = TVShow(JSONString: JSONString)
                 realm.add(favoriteShow!)
+                completion(true)
+                return
             }
-            completion(true)
-            return
         } catch {
             NSLog("DB error: \(String(describing: error))")
         }
