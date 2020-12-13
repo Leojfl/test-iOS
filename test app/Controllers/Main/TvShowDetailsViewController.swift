@@ -110,7 +110,9 @@ class TvShowDetailsViewController: UIViewController {
             }else{
                 self.setupBtnFavorite()
             }
+            
             self.btnFavorite.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.onClickBtnFavorite(_:))))
+            self.lblTitle.text = show!.name
         }
         
     }
