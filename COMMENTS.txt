@@ -1,5 +1,5 @@
 Arquitectura: 
-	La arquitectura usada en esta aplicación esta basada en arquitectura MVP. 
+	La arquitectura usada en esta aplicación esta basada en arquitectura MVP, haciendo que las funciones relacionadas con cada modelo este en este. 
 
 Librerias:
 	 Alamofire en su versión 5.0
