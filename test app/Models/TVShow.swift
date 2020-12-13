@@ -67,9 +67,8 @@ class TVShow:Object, Mappable {
             }
         } catch {
             NSLog("DB error: \(String(describing: error))")
+            completion(false)
         }
-        completion(false)
-        return
     }
     
     
@@ -84,14 +83,14 @@ class TVShow:Object, Mappable {
         do {
             try realm.write {
                 realm.delete(favoriteShow!)
+                completion(true)
+                return
             }
-            completion(true)
-            return
         } catch {
             NSLog("DB error: \(String(describing: error))")
+            completion(false)
+            return
         }
-        completion(false)
-        return
     }
     
     public static func getFavorites(completion: @escaping (_ data: [TVShow]) -> Void) {
