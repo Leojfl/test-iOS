@@ -11,25 +11,36 @@ class TVShowsViewController: UIViewController {
     
     
     @IBOutlet weak var tableTVshows: UITableView!
+    @IBOutlet weak var lblTitle: UILabel!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     private var tvShows:[TVShow] = []
     
+    public var handleSelectTvShow: ((_ tvShowId:Int64)-> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     
     private func setupUI() {
+        
+        setupStatusBarAndNavigationBar()
+        lblTitle.text = title
         setupTableShows()
         getTVShows()
+        tableTVshows.reloadData("No se encontraron shows para ver")
     }
     
     private func setupTableShows() {
         tableTVshows.dataSource = self
         tableTVshows.delegate = self
+        tableTVshows.tableFooterView = UIView()
         tableTVshows.reloadData("No se encontraron shows para ver")
         tableTVshows.register(UINib(nibName: "TVShowTableViewCell", bundle: nil), forCellReuseIdentifier: "TVShowTableViewCell")
     }
@@ -146,5 +157,8 @@ extension TVShowsViewController: UITableViewDelegate, UITableViewDataSource{
         return [actionButton]
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        handleSelectTvShow?(self.tvShows[indexPath.row].id)
+    }
     
 }

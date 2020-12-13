@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 extension UITableView {
     
@@ -62,5 +64,41 @@ extension UIImageView {
                 }
             }
         }
+    }
+}
+extension Results {
+    func toArray<T>(ofType: T.Type) -> [T] {
+        var array = [T]()
+        for i in 0 ..< count {
+            if let result = self[i] as? T {
+                array.append(result)
+            }
+        }
+        return array
+    }
+}
+
+extension UIViewController {
+    
+    func setupStatusBarAndNavigationBar(){
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        if #available(iOS 11.0, *) {
+            UIUtils.setupStatusBar(color: UIColor(named: "Purple")!)
+        } else {
+            UIUtils.setupStatusBar(color: #colorLiteral(red: 0.4791333079, green: 0.2467545271, blue: 0.9959545732, alpha: 1))
+        }
+    }
+}
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return nil
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
     }
 }

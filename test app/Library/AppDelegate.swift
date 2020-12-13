@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController")
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = vc
+        window?.rootViewController = UINavigationController(rootViewController: vc)
         return true
     }
 

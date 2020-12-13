@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EA3B5872585AE4500FDF757 /* TvShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3B5862585AE4500FDF757 /* TvShowDetailsViewController.swift */; };
+		4EA3B58C2585CE6300FDF757 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3B58B2585CE6300FDF757 /* Show.swift */; };
 		4ECC33A5258411BC006095FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC33A4258411BC006095FA /* AppDelegate.swift */; };
 		4ECC33A7258411BC006095FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC33A6258411BC006095FA /* SceneDelegate.swift */; };
 		4ECC33AC258411BC006095FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC33AA258411BC006095FA /* Main.storyboard */; };
 		4ECC33AE258411BD006095FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC33AD258411BD006095FA /* Assets.xcassets */; };
 		4ECC33B1258411BD006095FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC33AF258411BD006095FA /* LaunchScreen.storyboard */; };
-		4ECC33BC258411BD006095FA /* test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC33BB258411BD006095FA /* test_appTests.swift */; };
-		4ECC33C7258411BD006095FA /* test_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC33C6258411BD006095FA /* test_appUITests.swift */; };
 		4ECC342425846B34006095FA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC342325846B34006095FA /* MainViewController.swift */; };
 		4ECC343225847204006095FA /* TVShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC343125847204006095FA /* TVShowsViewController.swift */; };
 		4ECC343725847259006095FA /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC343625847259006095FA /* FavoritesViewController.swift */; };
@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EA3B5862585AE4500FDF757 /* TvShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetailsViewController.swift; sourceTree = "<group>"; };
+		4EA3B58B2585CE6300FDF757 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		4ECC33A1258411BC006095FA /* test app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECC33A4258411BC006095FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ECC33A6258411BC006095FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,11 +54,7 @@
 		4ECC33B0258411BD006095FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ECC33B2258411BD006095FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECC33B7258411BD006095FA /* test appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "test appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ECC33BB258411BD006095FA /* test_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_appTests.swift; sourceTree = "<group>"; };
-		4ECC33BD258411BD006095FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECC33C2258411BD006095FA /* test appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "test appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ECC33C6258411BD006095FA /* test_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_appUITests.swift; sourceTree = "<group>"; };
-		4ECC33C8258411BD006095FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECC342325846B34006095FA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4ECC343125847204006095FA /* TVShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsViewController.swift; sourceTree = "<group>"; };
 		4ECC343625847259006095FA /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				4ECC33A3258411BC006095FA /* test app */,
-				4ECC33BA258411BD006095FA /* test appTests */,
-				4ECC33C5258411BD006095FA /* test appUITests */,
 				4ECC33A2258411BC006095FA /* Products */,
 				5045D325FD58D30DFA9E1E00 /* Pods */,
 				821C11E388E5A9BE31D0FE2D /* Frameworks */,
@@ -130,24 +126,6 @@
 				4ECC33B2258411BD006095FA /* Info.plist */,
 			);
 			path = "test app";
-			sourceTree = "<group>";
-		};
-		4ECC33BA258411BD006095FA /* test appTests */ = {
-			isa = PBXGroup;
-			children = (
-				4ECC33BB258411BD006095FA /* test_appTests.swift */,
-				4ECC33BD258411BD006095FA /* Info.plist */,
-			);
-			path = "test appTests";
-			sourceTree = "<group>";
-		};
-		4ECC33C5258411BD006095FA /* test appUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4ECC33C6258411BD006095FA /* test_appUITests.swift */,
-				4ECC33C8258411BD006095FA /* Info.plist */,
-			);
-			path = "test appUITests";
 			sourceTree = "<group>";
 		};
 		4ECC33DA2584128B006095FA /* Controllers */ = {
@@ -190,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				4ECC3440258475AB006095FA /* TVShow.swift */,
+				4EA3B58B2585CE6300FDF757 /* Show.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +198,7 @@
 				4ECC342325846B34006095FA /* MainViewController.swift */,
 				4ECC343125847204006095FA /* TVShowsViewController.swift */,
 				4ECC343625847259006095FA /* FavoritesViewController.swift */,
+				4EA3B5862585AE4500FDF757 /* TvShowDetailsViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -422,7 +402,9 @@
 				4ECC349525849E04006095FA /* Extencion.swift in Sources */,
 				4ECC343725847259006095FA /* FavoritesViewController.swift in Sources */,
 				4ECC343225847204006095FA /* TVShowsViewController.swift in Sources */,
+				4EA3B5872585AE4500FDF757 /* TvShowDetailsViewController.swift in Sources */,
 				4ECC34462584769F006095FA /* Api.swift in Sources */,
+				4EA3B58C2585CE6300FDF757 /* Show.swift in Sources */,
 				4ECC343C25847404006095FA /* Constants.swift in Sources */,
 				4ECC34A225849F57006095FA /* UIUtils.swift in Sources */,
 			);
@@ -432,7 +414,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ECC33BC258411BD006095FA /* test_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +421,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ECC33C7258411BD006095FA /* test_appUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
